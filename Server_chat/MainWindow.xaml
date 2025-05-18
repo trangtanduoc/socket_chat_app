@@ -1,0 +1,38 @@
+﻿<Window x:Class="Server_chat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Server_chat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="438" Width="611">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Groups -->
+        <GroupBox Header="Groups" Grid.Column="0" Margin="5,5,100,10">
+            <ListBox x:Name="GroupList" SelectionChanged="GroupList_SelectionChanged"/>
+        </GroupBox>
+
+        <!-- Users -->
+        <GroupBox Header="Users" Margin="123,8,182,7" Grid.ColumnSpan="2">
+            <ListBox x:Name="UserList"/>
+        </GroupBox>
+
+        <!-- Chat Panel -->
+        <StackPanel Grid.Column="1" Margin="23,5,5,5" Grid.ColumnSpan="2">
+            <GroupBox Header="Chat Log" Margin="0,0,0,5">
+                <TextBox x:Name="ChatLog" IsReadOnly="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True" Height="350"/>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="ServerMessageBox" Width="247" Height="30" Margin="5,0,5,0"/>
+                <Button Content="Send as Server" Width="120" Click="SendAsServer_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+</Window>

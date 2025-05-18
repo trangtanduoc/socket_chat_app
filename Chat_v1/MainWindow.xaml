@@ -1,0 +1,61 @@
+﻿<Window x:Class="Chat_v1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chat Client" Height="500" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top Section: Name, Group Input, Connect, Group Selector -->
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,10">
+            <TextBox x:Name="client_name" Width="120" Margin="0,0,10,0" Text="Client Name"/>
+            <TextBox x:Name="group" Width="120" Margin="0,0,10,0" Text="Group ID"/>
+            <Button x:Name="Conect" Width="80" Margin="0,0,10,0" Content="Connect" Click="Connect_Click"/>
+            <Button x:Name="Disconnect" Width="80" Margin="0,0,10,0" Content="Disconnect" Click="Disconnect_Click"/>
+            <ComboBox x:Name="GroupSelector" Width="150" Margin="0,0,10,0" SelectionChanged="GroupSelector_SelectionChanged"/>
+        </StackPanel>
+
+        <!-- Left: Group Info -->
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="Group Members" FontWeight="Bold"/>
+            <ListBox x:Name="UserList" Height="350"/>
+        </StackPanel>
+
+        <!-- Right: Chat Area -->
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="Chat Messages" FontWeight="Bold"/>
+            <TextBox x:Name="chat_box" Height="350" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        </StackPanel>
+
+        <!-- Bottom: Send Box -->
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBox x:Name="message" Width="458" Height="30" Text="" VerticalContentAlignment="Center"/>
+            <Button Content="😊" Width="36" Click="OpenEmojiMenu_Click" Margin="5,0,5,0"/>
+            <Button x:Name="Send" Content="Send" Width="75" Height="30" Margin="0,0,0,0" Click="Send_Click"/>
+        </StackPanel>
+        <Popup x:Name="EmojiPopup" PlacementTarget="{Binding ElementName=message}" Placement="Top" StaysOpen="False">
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="5" CornerRadius="5">
+                <WrapPanel>
+                    <!-- Add emojis as buttons -->
+                    <Button Content="😀" Click="Emoji_Click" />
+                    <Button Content="😂" Click="Emoji_Click" />
+                    <Button Content="😍" Click="Emoji_Click" />
+                    <Button Content="😎" Click="Emoji_Click" />
+                    <Button Content="👍" Click="Emoji_Click" />
+                    <Button Content="🎉" Click="Emoji_Click" />
+                    <Button Content="💬" Click="Emoji_Click" />
+                    <Button Content="❤️" Click="Emoji_Click" />
+                    <!-- Add more as needed -->
+                </WrapPanel>
+            </Border>
+        </Popup>
+
+    </Grid>
+</Window>
