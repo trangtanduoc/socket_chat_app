@@ -45,7 +45,7 @@ namespace Chat_v1
                     return;
                 }
 
-                client = new TcpClient("192.168.1.184", 5000);
+                client = new TcpClient("192.168.26.17", 5000);
                 stream = client.GetStream();
 
                 // Send intro message with group and name
@@ -89,7 +89,7 @@ namespace Chat_v1
                 byte[] buffer = Encoding.UTF8.GetBytes(fullMessage);
                 stream.Write(buffer, 0, buffer.Length);
 
-                AppendChat(currentGroup, "You: " + msg);
+                // AppendChat(currentGroup, "You: " + msg);
                 message.Clear();
             }
         }

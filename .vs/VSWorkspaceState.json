@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Chat_v1",
+    "\\Chat_v1\\obj"
   ],
   "SelectedNode": "\\Chat.sln",
   "PreviewInSolutionExplorer": false

@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{4500D2DC-0267-478F-861F-5ACF410D430A}|Server_chat\\Server_chat.csproj|solutionrelative:server_chat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4500D2DC-0267-478F-861F-5ACF410D430A}|Server_chat\\Server_chat.csproj|d:\\prn222\\chat\\server_chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4500D2DC-0267-478F-861F-5ACF410D430A}|Server_chat\\Server_chat.csproj|solutionrelative:server_chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F25A0D4C-90B9-4E23-993D-C3F30C3793BC}|Chat_v1\\Chat_v1.csproj|d:\\prn222\\chat\\chat_v1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F25A0D4C-90B9-4E23-993D-C3F30C3793BC}|Chat_v1\\Chat_v1.csproj|solutionrelative:chat_v1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4500D2DC-0267-478F-861F-5ACF410D430A}|Server_chat\\Server_chat.csproj|d:\\prn222\\chat\\server_chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4500D2DC-0267-478F-861F-5ACF410D430A}|Server_chat\\Server_chat.csproj|solutionrelative:server_chat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "Chat_v1\\MainWindow.xaml.cs",
               "ToolTip": "D:\\PRN222\\Chat\\Chat_v1\\MainWindow.xaml.cs",
               "RelativeToolTip": "Chat_v1\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAowC0AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAUwC8AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T15:42:20.41Z",
               "EditorCaption": ""
@@ -49,26 +49,25 @@
               "RelativeDocumentMoniker": "Server_chat\\MainWindow.xaml.cs",
               "ToolTip": "D:\\PRN222\\Chat\\Server_chat\\MainWindow.xaml.cs",
               "RelativeToolTip": "Server_chat\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAgwCIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAQwBwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T15:41:39.032Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\PRN222\\Chat\\Server_chat\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Server_chat\\MainWindow.xaml",
               "ToolTip": "D:\\PRN222\\Chat\\Server_chat\\MainWindow.xaml",
               "RelativeToolTip": "Server_chat\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T15:32:30.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T15:32:30.665Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\PRN222\\Chat\\Chat_v1\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Chat_v1\\MainWindow.xaml",
