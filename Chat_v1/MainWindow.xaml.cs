@@ -182,7 +182,6 @@ namespace Chat_v1
                 }
 
                 client = new TcpClient();
-                //await client.ConnectAsync("0.0.0.0", 5000);
                 await client.ConnectAsync("127.0.0.1", 5000);
                 //await client.ConnectAsync("192.168.2.3", 5000);
                 stream = client.GetStream();
