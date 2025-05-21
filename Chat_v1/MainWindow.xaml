@@ -17,7 +17,7 @@
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,10">
             <TextBox x:Name="client_name" Width="120" Margin="0,0,10,0" Text="Client Name"/>
             <TextBox x:Name="group" Width="120" Margin="0,0,10,0" Text="Group ID"/>
-            <Button x:Name="Conect" Width="80" Margin="0,0,10,0" Content="Connect" Click="Connect_Click"/>
+            <Button x:Name="Connect" Width="80" Margin="0,0,10,0" Content="Connect" Click="Connect_Click"/>
             <Button x:Name="Disconnect" Width="80" Margin="0,0,10,0" Content="Disconnect" Click="Disconnect_Click"/>
             <ComboBox x:Name="GroupSelector" Width="150" Margin="0,0,10,0" SelectionChanged="GroupSelector_SelectionChanged"/>
         </StackPanel>
@@ -31,12 +31,15 @@
         <!-- Right: Chat Area -->
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Chat Messages" FontWeight="Bold"/>
-            <TextBox x:Name="chat_box" Height="350" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+            <ScrollViewer Height="350" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="chat_box"/>
+            </ScrollViewer>
         </StackPanel>
 
         <!-- Bottom: Send Box -->
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,10,0,0">
-            <TextBox x:Name="message" Width="458" Height="30" Text="" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="message" Width="350" Height="30" Text="" VerticalContentAlignment="Center"/>
+            <Button Content="📎" Width="36" Click="UploadFile_Click" Margin="5,0,5,0" ToolTip="Upload File"/>
             <Button Content="😊" Width="36" Click="OpenEmojiMenu_Click" Margin="5,0,5,0"/>
             <Button x:Name="Send" Content="Send" Width="75" Height="30" Margin="0,0,0,0" Click="Send_Click"/>
         </StackPanel>
