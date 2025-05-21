@@ -7,6 +7,7 @@ using System.Text;
 
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 using Newtonsoft.Json;
@@ -181,7 +182,9 @@ namespace Chat_v1
                 }
 
                 client = new TcpClient();
-                await client.ConnectAsync("192.168.2.3", 5000);
+                //await client.ConnectAsync("0.0.0.0", 5000);
+                await client.ConnectAsync("127.0.0.1", 5000);
+                //await client.ConnectAsync("192.168.2.3", 5000);
                 stream = client.GetStream();
 
                 // Send intro message with group and name
@@ -293,20 +296,51 @@ namespace Chat_v1
 
         private void UpdateChatDisplay(string groupId)
         {
-            chat_box.Children.Clear();
+            MessagesPanel.Children.Clear();
 
             foreach (string message in groupMessages[groupId])
             {
-                if (message.Contains("shared a file:"))
+                bool isOwnMessage = message.StartsWith(userName);
+                bool isFileMessage = message.Contains("shared a file:");
+
+                StackPanel messagePanel = new StackPanel
+                {
+                    Margin = new Thickness(5),
+                    HorizontalAlignment = isOwnMessage ? HorizontalAlignment.Right : HorizontalAlignment.Left
+                };
+
+                string displayText = message;
+                string fileUrl = null;
+
+                if (isFileMessage)
                 {
                     string[] parts = message.Split(new[] { "shared a file:" }, StringSplitOptions.None);
-                    string fileUrl = parts[1].Trim();
-                    string fileExtension = Path.GetExtension(fileUrl).ToLower();
+                    displayText = parts[0].Trim();
+                    fileUrl = parts[1].Trim();
+                }
 
-                    StackPanel messagePanel = new StackPanel { Margin = new Thickness(5) };
-                    TextBlock textBlock = new TextBlock { Text = parts[0].Trim(), TextWrapping = TextWrapping.Wrap };
-                    messagePanel.Children.Add(textBlock);
+                TextBlock textBlock = new TextBlock
+                {
+                    Text = displayText,
+                    TextWrapping = TextWrapping.Wrap,
+                    Foreground = isOwnMessage ? Brushes.White : Brushes.Black,
+                    Padding = new Thickness(10),
+                    MaxWidth = 300,
+                    TextAlignment = TextAlignment.Left,
+                };
 
+                Border border = new Border
+                {
+                    CornerRadius = new CornerRadius(10),
+                    Background = isOwnMessage ? Brushes.SkyBlue : Brushes.White,
+                    Child = textBlock
+                };
+
+                messagePanel.Children.Add(border);
+
+                if (fileUrl != null)
+                {
+                    string fileExtension = System.IO.Path.GetExtension(fileUrl).ToLower();
                     if (IsImageExtension(fileExtension))
                     {
                         try
@@ -329,21 +363,12 @@ namespace Chat_v1
                     {
                         AddFileLink(messagePanel, fileUrl);
                     }
+                }
 
-                    chat_box.Children.Add(messagePanel);
-                }
-                else
-                {
-                    TextBlock textBlock = new TextBlock
-                    {
-                        Text = message,
-                        TextWrapping = TextWrapping.Wrap,
-                        Margin = new Thickness(5)
-                    };
-                    chat_box.Children.Add(textBlock);
-                }
+                MessagesPanel.Children.Add(messagePanel);
             }
         }
+
 
         private bool IsImageExtension(string extension)
         {
@@ -409,6 +434,12 @@ namespace Chat_v1
                 }
             }
         }
+
+        private void EmojiToggle_Click(object sender, RoutedEventArgs e)
+        {
+            EmojiPopup.IsOpen = !EmojiPopup.IsOpen;
+        }
+
 
         private void GroupSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -513,4 +544,6 @@ namespace Chat_v1
         public int PartNumber { get; set; }
         public string ETag { get; set; }
     }
+
+
 }
